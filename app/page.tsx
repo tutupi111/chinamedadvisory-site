@@ -1,38 +1,32 @@
-export default function HomePage() {
+export default function Home() {
   return (
-    <main
-      style={{
-        minHeight: "100vh",
-        padding: "60px",
-        fontFamily: "Arial, sans-serif",
-        backgroundColor: "#ffffff",
-        color: "#111111",
-      }}
-    >
-      <h1 style={{ fontSize: "42px", marginBottom: "20px" }}>
-        ChinaMedAdvisory
-      </h1>
-
-      <p style={{ fontSize: "18px", maxWidth: "720px", lineHeight: 1.6 }}>
-        We provide professional medical advisory and full-process patient
-        accompaniment services for international patients seeking medical
-        treatment in China.
+    <main style={{ padding: "40px", fontFamily: "Arial, sans-serif" }}>
+      <h1>ChinaMedAdvisory</h1>
+      <p>
+        Professional Medical Advisory & Care Coordination Services in China
       </p>
 
-      <section style={{ marginTop: "60px" }}>
-        <h2>Our Services</h2>
-        <ul>
-          <li>Medical consultation and case evaluation</li>
-          <li>Hospital and specialist coordination</li>
-          <li>On-site accompaniment and interpretation</li>
-          <li>Post-treatment follow-up support</li>
-        </ul>
-      </section>
+      <p>
+        We help international patients navigate China’s medical system with clarity,
+        confidence, and professional support — from pre-arrival consultation to
+        in-country care coordination.
+      </p>
 
-      <section style={{ marginTop: "60px" }}>
-        <h2>Contact Us</h2>
-        <p>Email: contact@chinamedadvisory.com</p>
-      </section>
+      <h2>What We Do</h2>
+      <p>
+        ChinaMedAdvisory provides independent medical advisory and care coordination
+        services for international patients seeking medical treatment in China.
+      </p>
+
+      <h2>Our Services</h2>
+      <ul>
+        <li>Pre-treatment medical consultation and case review</li>
+        <li>Hospital and specialist coordination across China</li>
+        <li>Treatment planning and medical pathway guidance</li>
+        <li>On-site care coordination and appointment support</li>
+        <li>Medical interpretation and documentation assistance</li>
+        <li>Post-treatment follow-up and continuity of care</li>
+      </ul>
     </main>
   );
 }
