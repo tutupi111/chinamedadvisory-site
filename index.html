@@ -1,32 +1,285 @@
-export default function Home() {
-  return (
-    <main style={{ padding: "40px", fontFamily: "Arial, sans-serif" }}>
-      <h1>ChinaMedAdvisory</h1>
-      <p>
-        Professional Medical Advisory & Care Coordination Services in China
-      </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChinaMedAdvisory — Professional Medical Advisory & Care Coordination in China</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-bg: #fafbfc;
+      --color-surface: #ffffff;
+      --color-text: #1a1d21;
+      --color-text-muted: #5c6166;
+      --color-accent: #0d5c3d;
+      --color-accent-light: #e8f2ee;
+      --color-border: #e4e7eb;
+      --font-serif: "Source Serif 4", Georgia, serif;
+      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      --max-width: 960px;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2rem;
+      --space-xl: 3rem;
+      --space-2xl: 4rem;
+    }
 
-      <p>
-        We help international patients navigate China’s medical system with clarity,
-        confidence, and professional support — from pre-arrival consultation to
-        in-country care coordination.
-      </p>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--color-text);
+      background: var(--color-bg);
+    }
 
-      <h2>What We Do</h2>
-      <p>
-        ChinaMedAdvisory provides independent medical advisory and care coordination
-        services for international patients seeking medical treatment in China.
-      </p>
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
 
-      <h2>Our Services</h2>
-      <ul>
-        <li>Pre-treatment medical consultation and case review</li>
-        <li>Hospital and specialist coordination across China</li>
-        <li>Treatment planning and medical pathway guidance</li>
-        <li>On-site care coordination and appointment support</li>
-        <li>Medical interpretation and documentation assistance</li>
-        <li>Post-treatment follow-up and continuity of care</li>
-      </ul>
-    </main>
-  );
-}
+    /* Hero */
+    .hero {
+      padding: var(--space-2xl) 0;
+      text-align: center;
+      border-bottom: 1px solid var(--color-border);
+      background: var(--color-surface);
+    }
+    .hero__brand {
+      font-family: var(--font-serif);
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 700;
+      color: var(--color-accent);
+      letter-spacing: -0.02em;
+      margin: 0 0 var(--space-sm);
+    }
+    .hero__slogan {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 400;
+      color: var(--color-text-muted);
+      max-width: 32em;
+      margin: 0 auto;
+    }
+
+    /* Section common */
+    section {
+      padding: var(--space-2xl) 0;
+    }
+    section:nth-child(even) {
+      background: var(--color-surface);
+    }
+    .section__title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin: 0 0 var(--space-lg);
+      padding-bottom: var(--space-sm);
+      border-bottom: 2px solid var(--color-accent);
+      display: inline-block;
+    }
+    .section__intro {
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-lg);
+      max-width: 52ch;
+    }
+
+    /* Services grid */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+    .service-card {
+      padding: var(--space-md);
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+    }
+    .service-card__title {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--color-accent);
+      margin: 0 0 var(--space-xs);
+    }
+    .service-card__desc {
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+      margin: 0;
+    }
+
+    /* Two-column lists */
+    .reasons {
+      display: grid;
+      gap: var(--space-xl);
+    }
+    @media (min-width: 640px) {
+      .reasons { grid-template-columns: 1fr 1fr; }
+    }
+    .reason-block h3 {
+      font-family: var(--font-serif);
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin: 0 0 var(--space-sm);
+    }
+    .reason-block ul {
+      margin: 0;
+      padding-left: 1.25rem;
+      color: var(--color-text-muted);
+    }
+    .reason-block li {
+      margin-bottom: var(--space-xs);
+    }
+
+    /* Contact */
+    .contact {
+      background: var(--color-accent-light);
+      border: 1px solid rgba(13, 92, 61, 0.15);
+      border-radius: 8px;
+      padding: var(--space-lg);
+    }
+    .contact__title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      margin: 0 0 var(--space-md);
+    }
+    .contact__list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .contact__item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-size: 0.9375rem;
+    }
+    .contact__item strong {
+      color: var(--color-text);
+      font-weight: 500;
+    }
+    .contact__item a {
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+    .contact__item a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      padding: var(--space-lg) 0;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1 class="hero__brand">ChinaMedAdvisory</h1>
+      <p class="hero__slogan">Professional Medical Advisory & Care Coordination in China — clarity, confidence, and support for international patients.</p>
+    </div>
+  </header>
+
+  <main>
+    <section id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <h2 id="services-heading" class="section__title">Our Services</h2>
+        <p class="section__intro">We help international patients navigate China’s healthcare system with end-to-end support.</p>
+        <div class="services">
+          <article class="service-card">
+            <h3 class="service-card__title">International Medical Consulting</h3>
+            <p class="service-card__desc">Pre-arrival consultation, case review, and treatment pathway guidance tailored to your needs.</p>
+          </article>
+          <article class="service-card">
+            <h3 class="service-card__title">Referral & Coordination</h3>
+            <p class="service-card__desc">Hospital and specialist coordination across China; we connect you with the right experts.</p>
+          </article>
+          <article class="service-card">
+            <h3 class="service-card__title">In-Country Accompaniment</h3>
+            <p class="service-card__desc">On-site care coordination, appointment support, and medical interpretation when you are in China.</p>
+          </article>
+          <article class="service-card">
+            <h3 class="service-card__title">Remote Consultation</h3>
+            <p class="service-card__desc">Follow-up and continuity of care via secure remote channels after your visit.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-china" aria-labelledby="why-china-heading">
+      <div class="container">
+        <h2 id="why-china-heading" class="section__title">Why Choose Healthcare in China</h2>
+        <p class="section__intro">China offers a growing range of high-quality medical options for international patients.</p>
+        <div class="reasons">
+          <div class="reason-block">
+            <h3>Quality & scale</h3>
+            <ul>
+              <li>Leading hospitals and research centres in major cities</li>
+              <li>Advanced equipment and specialised disciplines</li>
+              <li>Combination of Western protocols and TCM where appropriate</li>
+            </ul>
+          </div>
+          <div class="reason-block">
+            <h3>Access & value</h3>
+            <ul>
+              <li>Efficient scheduling and shorter wait times in many specialties</li>
+              <li>Competitive costs for complex procedures</li>
+              <li>Growing English-speaking and international patient services</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-us" aria-labelledby="why-us-heading">
+      <div class="container">
+        <h2 id="why-us-heading" class="section__title">Why Choose ChinaMedAdvisory</h2>
+        <p class="section__intro">Independent, patient-centred advisory so you can make informed decisions.</p>
+        <ul class="reason-block" style="padding-left: 1.25rem; margin: 0; color: var(--color-text-muted);">
+          <li>Independent medical advisory — we work for you, not for hospitals</li>
+          <li>End-to-end support from first inquiry to post-treatment follow-up</li>
+          <li>Clear communication, documentation assistance, and coordination in English</li>
+          <li>Transparent processes and respect for your privacy and preferences</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <h2 id="contact-heading" class="section__title">Contact Us</h2>
+        <div class="contact">
+          <h3 class="contact__title">Get in touch</h3>
+          <ul class="contact__list">
+            <li class="contact__item"><strong>Email:</strong> <a href="mailto:contact@chinamedadvisory.com">contact@chinamedadvisory.com</a></li>
+            <li class="contact__item"><strong>WhatsApp:</strong> <a href="#" rel="noopener">[WhatsApp 号码占位]</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© ChinaMedAdvisory. Professional Medical Advisory & Care Coordination in China.</p>
+    </div>
+  </footer>
+</body>
+</html>
