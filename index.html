@@ -233,6 +233,70 @@
     .why-item__title { font-family: var(--font-serif); font-weight: 600; font-size: 1rem; color: var(--text); margin: 0 0 var(--space-1); }
     .why-item__text { font-size: 0.9375rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
 
+    /* Why Medical Care in China */
+    .reason-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    .reason-card {
+      padding: var(--space-3);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .reason-card__title { font-family: var(--font-serif); font-weight: 600; font-size: 1rem; color: var(--accent); margin: 0 0 var(--space-2); }
+    .reason-card__text { font-size: 0.9375rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+
+    /* Conditions */
+    .conditions-intro { font-size: 0.9375rem; color: var(--text-muted); margin: 0 0 var(--space-4); max-width: 60ch; line-height: 1.5; }
+    .conditions-category { margin-bottom: var(--space-4); }
+    .conditions-category:last-child { margin-bottom: 0; }
+    .conditions-category__title { font-family: var(--font-serif); font-weight: 600; font-size: 1rem; color: var(--text); margin: 0 0 var(--space-2); }
+    .conditions-list { margin: 0; padding-left: 1.25rem; font-size: 0.9375rem; color: var(--text-muted); line-height: 1.6; }
+    .conditions-list li { margin-bottom: var(--space-1); }
+    .conditions-disclaimer { font-size: 0.8125rem; color: var(--text-muted); margin-top: var(--space-4); font-style: italic; max-width: 55ch; }
+
+    /* Comparison table */
+    .compare-wrap { margin-top: var(--space-4); overflow-x: auto; }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9375rem;
+    }
+    .compare-table th,
+    .compare-table td {
+      padding: var(--space-2) var(--space-3);
+      text-align: left;
+      border: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .compare-table th {
+      background: var(--bg);
+      font-weight: 600;
+      color: var(--text);
+    }
+    .compare-table td { color: var(--text-muted); }
+    .compare-table thead th:first-child { width: 22%; }
+    .compare-table .compare-note { font-size: 0.8125rem; margin-top: var(--space-3); color: var(--text-muted); font-style: italic; }
+
+    /* Patient Perspectives */
+    .perspectives-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    .perspective-card {
+      padding: var(--space-4);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .perspective-card__quote { font-size: 0.9375rem; color: var(--text); line-height: 1.5; margin: 0 0 var(--space-2); }
+    .perspective-card__meta { font-size: 0.8125rem; color: var(--text-muted); }
+
     /* Contact */
     .contact-box {
       background: var(--accent-light);
@@ -466,6 +530,135 @@
               <h3 class="why-item__title" data-i18n="why4_title">Transparent process</h3>
               <p class="why-item__text" data-i18n="why4_text">No hidden fees or pressure. We explain options clearly so you stay in control of your care.</p>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-china" aria-labelledby="why-china-heading">
+      <div class="container">
+        <p class="sec__label">The destination</p>
+        <h2 id="why-china-heading" class="sec__title">Why Medical Care in China</h2>
+        <p class="sec__intro">Some international patients consider China as part of their care journey. Here are factors that often matter from a patient perspective.</p>
+        <div class="reason-grid">
+          <div class="reason-card">
+            <h3 class="reason-card__title">Specialist access</h3>
+            <p class="reason-card__text">Major centres offer concentrated expertise in certain disciplines and high patient volume, which can mean earlier access to subspecialists and shorter wait times for assessment.</p>
+          </div>
+          <div class="reason-card">
+            <h3 class="reason-card__title">Case experience</h3>
+            <p class="reason-card__text">In several areas, clinicians see a large number of cases annually. That experience can be relevant when your condition is complex or when you are seeking a second opinion.</p>
+          </div>
+          <div class="reason-card">
+            <h3 class="reason-card__title">Integrated care pathways</h3>
+            <p class="reason-card__text">Some patients look for a combination of Western protocols and traditional or integrative approaches under one system, with coordinated planning rather than fragmented referrals.</p>
+          </div>
+          <div class="reason-card">
+            <h3 class="reason-card__title">Transparency and choice</h3>
+            <p class="reason-card__text">Clear information on options, timelines, and costs helps you compare and decide. Independent advisory can support that transparency without pressure to choose a particular provider.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="conditions" class="alt" aria-labelledby="conditions-heading">
+      <div class="container">
+        <p class="sec__label">Scope of care</p>
+        <h2 id="conditions-heading" class="sec__title">Conditions Commonly Treated in China</h2>
+        <p class="sec__intro">The following categories are often suitable for assessment or consideration in China. This is not a guarantee of treatment or outcome; each case requires individual evaluation.</p>
+        <p class="conditions-intro">We do not recommend specific treatments or promise results. The list is for orientation only and should not replace advice from your own doctors.</p>
+        <div class="conditions-category">
+          <h3 class="conditions-category__title">Complex and multidisciplinary conditions</h3>
+          <ul class="conditions-list">
+            <li>Conditions involving multiple organ systems or requiring coordinated input from several specialties</li>
+            <li>Cases where diagnosis remains unclear after initial workup and a structured second opinion may be useful</li>
+            <li>Long-standing symptoms without a clear unifying diagnosis, where a high-volume centre may offer different perspectives</li>
+          </ul>
+        </div>
+        <div class="conditions-category">
+          <h3 class="conditions-category__title">Long-term and chronic management</h3>
+          <ul class="conditions-list">
+            <li>Chronic functional disorders where integrated or traditional approaches are part of the treatment landscape</li>
+            <li>Rehabilitation and recovery after major treatment (e.g. surgery or oncology), where coordinated follow-up is important</li>
+            <li>Conditions requiring ongoing monitoring and adjustment, with potential for combined Western and integrative support</li>
+          </ul>
+        </div>
+        <div class="conditions-category">
+          <h3 class="conditions-category__title">Procedures with high volume and centralised expertise</h3>
+          <ul class="conditions-list">
+            <li>Certain surgical disciplines where centre volume and experience may be a factor in your assessment</li>
+            <li>Elective procedures where wait times or cost in your home country lead you to explore options elsewhere</li>
+            <li>Diagnostic or therapeutic interventions where you want to compare pathways and availability across systems</li>
+          </ul>
+        </div>
+        <p class="conditions-disclaimer">Whether China is appropriate for your situation depends on your medical history, current care plan, and goals. We help you understand options and access; we do not make clinical recommendations.</p>
+      </div>
+    </section>
+
+    <section id="compare" aria-labelledby="compare-heading">
+      <div class="container">
+        <p class="sec__label">Understanding options</p>
+        <h2 id="compare-heading" class="sec__title">Care in China vs Local Care</h2>
+        <p class="sec__intro">This comparison is for context only. Local care remains the foundation for most patients; China may be a complementary option in certain situations.</p>
+        <div class="compare-wrap">
+          <table class="compare-table" role="table">
+            <thead>
+              <tr>
+                <th scope="col">Aspect</th>
+                <th scope="col">Local care (home country)</th>
+                <th scope="col">Care in China (as an option)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Continuity</th>
+                <td>Ongoing relationship with your usual doctors; familiar system and language.</td>
+                <td>Requires coordination with your home team; best when planned as part of a clear pathway (e.g. second opinion, specific procedure, then return).</td>
+              </tr>
+              <tr>
+                <th scope="row">Access & wait times</th>
+                <td>Depends on your system; may involve long waits for some specialties or procedures.</td>
+                <td>In some centres and disciplines, assessment and procedures can be scheduled within a defined timeframe; varies by condition and hospital.</td>
+              </tr>
+              <tr>
+                <th scope="row">Cost</th>
+                <td>Governed by your insurance and local pricing; often fully or partly covered.</td>
+                <td>Typically self-pay or partial coverage; costs can be lower for some procedures, but travel and logistics add to the total.</td>
+              </tr>
+              <tr>
+                <th scope="row">Communication</th>
+                <td>Same language and culture; straightforward follow-up.</td>
+                <td>Interpretation and documentation support are important; we help ensure clarity and records for your home doctors.</td>
+              </tr>
+              <tr>
+                <th scope="row">When it may fit</th>
+                <td>First line for most care; follow-up; emergencies; conditions well managed locally.</td>
+                <td>Worth considering for second opinion, specific expertise, integrated approaches, or when local options are limited or delayed.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="compare-note">We do not suggest that one setting is “better” than the other. The goal is to present options so you can decide what fits your situation.</p>
+      </div>
+    </section>
+
+    <section id="perspectives" class="alt" aria-labelledby="perspectives-heading">
+      <div class="container">
+        <p class="sec__label">Patient perspectives</p>
+        <h2 id="perspectives-heading" class="sec__title">Patient Perspectives</h2>
+        <p class="sec__intro">Anonymous reflections from international patients who have used advisory and coordination services. No names, institutions, or identifying details.</p>
+        <div class="perspectives-grid">
+          <div class="perspective-card">
+            <p class="perspective-card__quote">I had been going in circles at home. Someone who could explain the system and what was realistic — without selling me anything — made the difference. I felt heard.</p>
+            <p class="perspective-card__meta">International patient, second opinion and coordination</p>
+          </div>
+          <div class="perspective-card">
+            <p class="perspective-card__quote">The fact that there was one person from the first email to the last day in China kept things clear. I didn’t have to repeat my story or worry about things falling between the cracks.</p>
+            <p class="perspective-card__meta">International patient, surgery and in-country support</p>
+          </div>
+          <div class="perspective-card">
+            <p class="perspective-card__quote">I wasn’t sure if China was right for my case. Getting straight information about what could and couldn’t be done helped me decide. No pressure, just clarity.</p>
+            <p class="perspective-card__meta">International patient, assessment and referral</p>
           </div>
         </div>
       </div>
