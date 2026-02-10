@@ -3,274 +3,469 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ChinaMedAdvisory — Professional Medical Advisory & Care Coordination in China</title>
+  <title>ChinaMedAdvisory — Medical Advisory & Care Coordination in China</title>
+  <meta name="description" content="Independent medical advisory, referral, and accompaniment for international patients seeking care in China." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --color-bg: #fafbfc;
-      --color-surface: #ffffff;
-      --color-text: #1a1d21;
-      --color-text-muted: #5c6166;
-      --color-accent: #0d5c3d;
-      --color-accent-light: #e8f2ee;
-      --color-border: #e4e7eb;
+      --bg: #f8faf9;
+      --surface: #ffffff;
+      --text: #1a1d21;
+      --text-muted: #5c6166;
+      --accent: #0d5c3d;
+      --accent-hover: #094d32;
+      --accent-light: #e8f2ee;
+      --border: #e4e7eb;
+      --error: #b91c1c;
       --font-serif: "Source Serif 4", Georgia, serif;
       --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-      --max-width: 960px;
-      --space-xs: 0.5rem;
-      --space-sm: 1rem;
-      --space-md: 1.5rem;
-      --space-lg: 2rem;
-      --space-xl: 3rem;
-      --space-2xl: 4rem;
+      --max-w: 1000px;
+      --space-1: 0.5rem;
+      --space-2: 1rem;
+      --space-3: 1.5rem;
+      --space-4: 2rem;
+      --space-5: 3rem;
+      --space-6: 4rem;
+      --nav-h: 60px;
+      --radius: 8px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.06);
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: var(--font-sans);
-      font-size: 1rem;
-      line-height: 1.6;
-      color: var(--color-text);
-      background: var(--color-bg);
-    }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: var(--font-sans); font-size: 1rem; line-height: 1.6; color: var(--text); background: var(--bg); }
 
-    .container {
-      max-width: var(--max-width);
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--space-3); }
+
+    /* Nav */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    .nav__inner {
+      max-width: var(--max-w);
       margin: 0 auto;
-      padding: 0 var(--space-md);
-    }
-
-    /* Hero */
-    .hero {
-      padding: var(--space-2xl) 0;
-      text-align: center;
-      border-bottom: 1px solid var(--color-border);
-      background: var(--color-surface);
-    }
-    .hero__brand {
-      font-family: var(--font-serif);
-      font-size: clamp(1.75rem, 4vw, 2.25rem);
-      font-weight: 700;
-      color: var(--color-accent);
-      letter-spacing: -0.02em;
-      margin: 0 0 var(--space-sm);
-    }
-    .hero__slogan {
-      font-family: var(--font-serif);
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      font-weight: 400;
-      color: var(--color-text-muted);
-      max-width: 32em;
-      margin: 0 auto;
-    }
-
-    /* Section common */
-    section {
-      padding: var(--space-2xl) 0;
-    }
-    section:nth-child(even) {
-      background: var(--color-surface);
-    }
-    .section__title {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--color-text);
-      margin: 0 0 var(--space-lg);
-      padding-bottom: var(--space-sm);
-      border-bottom: 2px solid var(--color-accent);
-      display: inline-block;
-    }
-    .section__intro {
-      color: var(--color-text-muted);
-      margin-bottom: var(--space-lg);
-      max-width: 52ch;
-    }
-
-    /* Services grid */
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: var(--space-md);
-      margin-top: var(--space-lg);
-    }
-    .service-card {
-      padding: var(--space-md);
-      background: var(--color-bg);
-      border: 1px solid var(--color-border);
-      border-radius: 6px;
-    }
-    .service-card__title {
-      font-family: var(--font-serif);
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: var(--color-accent);
-      margin: 0 0 var(--space-xs);
-    }
-    .service-card__desc {
-      font-size: 0.9375rem;
-      color: var(--color-text-muted);
-      margin: 0;
-    }
-
-    /* Two-column lists */
-    .reasons {
-      display: grid;
-      gap: var(--space-xl);
-    }
-    @media (min-width: 640px) {
-      .reasons { grid-template-columns: 1fr 1fr; }
-    }
-    .reason-block h3 {
-      font-family: var(--font-serif);
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: var(--color-text);
-      margin: 0 0 var(--space-sm);
-    }
-    .reason-block ul {
-      margin: 0;
-      padding-left: 1.25rem;
-      color: var(--color-text-muted);
-    }
-    .reason-block li {
-      margin-bottom: var(--space-xs);
-    }
-
-    /* Contact */
-    .contact {
-      background: var(--color-accent-light);
-      border: 1px solid rgba(13, 92, 61, 0.15);
-      border-radius: 8px;
-      padding: var(--space-lg);
-    }
-    .contact__title {
-      font-family: var(--font-serif);
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--color-accent);
-      margin: 0 0 var(--space-md);
-    }
-    .contact__list {
+      padding: 0 var(--space-3);
+      height: 100%;
       display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-md);
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav__brand {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .nav__brand:hover { color: var(--accent-hover); }
+    .nav__menu {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
       list-style: none;
       margin: 0;
       padding: 0;
     }
-    .contact__item {
-      display: flex;
-      align-items: center;
-      gap: var(--space-xs);
+    .nav__menu a {
       font-size: 0.9375rem;
-    }
-    .contact__item strong {
-      color: var(--color-text);
       font-weight: 500;
-    }
-    .contact__item a {
-      color: var(--color-accent);
+      color: var(--text);
       text-decoration: none;
     }
-    .contact__item a:hover {
-      text-decoration: underline;
+    .nav__menu a:hover { color: var(--accent); }
+    .nav__lang {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
     }
+    .nav__lang span { margin: 0 0.2rem; }
+    @media (max-width: 768px) {
+      .nav__menu { display: none; }
+    }
+
+    /* Hero */
+    .hero {
+      padding: var(--space-6) 0;
+      text-align: center;
+      background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero__title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--text);
+      margin: 0 0 var(--space-2);
+      line-height: 1.25;
+    }
+    .hero__title .hl { color: var(--accent); }
+    .hero__sub {
+      font-size: 1.0625rem;
+      color: var(--text-muted);
+      max-width: 40ch;
+      margin: 0 auto var(--space-5);
+      line-height: 1.5;
+    }
+    .hero__ctas { display: flex; flex-wrap: wrap; gap: var(--space-2); justify-content: center; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      border: none;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .btn--primary { background: var(--accent); color: #fff; }
+    .btn--primary:hover { background: var(--accent-hover); box-shadow: var(--shadow); }
+    .btn--outline { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
+    .btn--outline:hover { background: var(--accent-light); }
+
+    /* Sections */
+    section { padding: var(--space-6) 0; }
+    section.alt { background: var(--surface); }
+    .sec__label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin: 0 0 var(--space-1);
+    }
+    .sec__title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+      font-weight: 700;
+      color: var(--text);
+      margin: 0 0 var(--space-2);
+    }
+    .sec__intro { font-size: 1rem; color: var(--text-muted); max-width: 52ch; margin: 0 0 var(--space-4); line-height: 1.5; }
+
+    /* Accordion */
+    .accordion { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+    .accordion__item { border-bottom: 1px solid var(--border); }
+    .accordion__item:last-child { border-bottom: none; }
+    .accordion__head {
+      width: 100%;
+      padding: var(--space-3) var(--space-4);
+      background: none;
+      border: none;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .accordion__head:hover { background: var(--bg); }
+    .accordion__head::after {
+      content: '+';
+      font-size: 1.25rem;
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-left: var(--space-2);
+    }
+    .accordion__item.is-open .accordion__head::after { content: '−'; }
+    .accordion__panel { max-height: 0; overflow: hidden; transition: max-height 0.25s ease-out; }
+    .accordion__panel-inner { padding: 0 var(--space-4) var(--space-4); }
+    .accordion__panel p { margin: 0; font-size: 0.9375rem; color: var(--text-muted); line-height: 1.5; }
+
+    /* Steps */
+    .steps { margin-top: var(--space-4); }
+    .step {
+      display: flex;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    .step:last-child { margin-bottom: 0; }
+    .step__num {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .step__title { font-family: var(--font-serif); font-weight: 600; font-size: 1.0625rem; color: var(--text); margin: 0 0 var(--space-1); }
+    .step__text { font-size: 0.9375rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+
+    /* Why Us */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    .why-item { display: flex; gap: var(--space-2); align-items: flex-start; }
+    .why-item__title { font-family: var(--font-serif); font-weight: 600; font-size: 1rem; color: var(--text); margin: 0 0 var(--space-1); }
+    .why-item__text { font-size: 0.9375rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+
+    /* Contact */
+    .contact-box {
+      background: var(--accent-light);
+      border: 1px solid rgba(13, 92, 61, 0.12);
+      border-radius: var(--radius);
+      padding: var(--space-5);
+      margin-top: var(--space-4);
+    }
+    .contact-box p { margin: 0 0 var(--space-2); font-size: 0.9375rem; }
+    .contact-box a { color: var(--accent); font-weight: 500; text-decoration: none; }
+    .contact-box a:hover { text-decoration: underline; }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-3);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s;
+    }
+    .modal-overlay.is-open { opacity: 1; visibility: visible; }
+    .modal {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+      max-width: 440px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .modal__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-4);
+      border-bottom: 1px solid var(--border);
+    }
+    .modal__title { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600; color: var(--text); margin: 0; }
+    .modal__close { width: 36px; height: 36px; border: none; background: none; cursor: pointer; color: var(--text-muted); font-size: 1.5rem; line-height: 1; }
+    .modal__close:hover { color: var(--text); }
+    .modal__body { padding: var(--space-4); }
+    .form-group { margin-bottom: var(--space-3); }
+    .form-group label { display: block; font-size: 0.875rem; font-weight: 500; color: var(--text); margin-bottom: var(--space-1); }
+    .form-group .req { color: var(--error); }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 0.6rem 0.75rem;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(13, 92, 61, 0.12);
+    }
+    .form-group input.is-invalid { border-color: var(--error); }
+    .form-group textarea { min-height: 100px; resize: vertical; }
+    .form-group .err { font-size: 0.8125rem; color: var(--error); margin-top: var(--space-1); }
+    .form-privacy { font-size: 0.8125rem; color: var(--text-muted); margin: var(--space-3) 0 0; line-height: 1.4; }
+    .form-actions { margin-top: var(--space-4); display: flex; gap: var(--space-2); }
+    .form-actions .btn { flex: 1; }
+    .form-done { display: none; text-align: center; padding: var(--space-5); }
+    .form-done.is-visible { display: block; }
+    .form-done p { margin: 0 0 var(--space-2); font-size: 0.9375rem; color: var(--text-muted); }
+    .form-wrapper.is-hidden { display: none; }
 
     /* Footer */
     footer {
-      padding: var(--space-lg) 0;
-      border-top: 1px solid var(--color-border);
+      padding: var(--space-5) 0;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
       text-align: center;
       font-size: 0.875rem;
-      color: var(--color-text-muted);
+      color: var(--text-muted);
     }
+    footer p { margin: 0; }
   </style>
 </head>
 <body>
+  <nav class="nav" aria-label="Main">
+    <div class="nav__inner">
+      <a class="nav__brand" href="#">ChinaMedAdvisory</a>
+      <ul class="nav__menu">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <span class="nav__lang">EN <span>|</span> 中文</span>
+    </div>
+  </nav>
+
   <header class="hero">
     <div class="container">
-      <h1 class="hero__brand">ChinaMedAdvisory</h1>
-      <p class="hero__slogan">Professional Medical Advisory & Care Coordination in China — clarity, confidence, and support for international patients.</p>
+      <h1 class="hero__title">Your trusted partner for <span class="hl">medical care in China</span></h1>
+      <p class="hero__sub">We provide independent medical advisory, referral, and accompaniment so international patients can access China’s healthcare with clarity and confidence.</p>
+      <div class="hero__ctas">
+        <a class="btn btn--primary" href="#contact">Contact Us</a>
+        <button type="button" class="btn btn--outline" id="open-modal-hero">Request Consultation</button>
+      </div>
     </div>
   </header>
 
   <main>
-    <section id="services" aria-labelledby="services-heading">
+    <section id="services" class="alt" aria-labelledby="services-heading">
       <div class="container">
-        <h2 id="services-heading" class="section__title">Our Services</h2>
-        <p class="section__intro">We help international patients navigate China’s healthcare system with end-to-end support.</p>
-        <div class="services">
-          <article class="service-card">
-            <h3 class="service-card__title">International Medical Consulting</h3>
-            <p class="service-card__desc">Pre-arrival consultation, case review, and treatment pathway guidance tailored to your needs.</p>
-          </article>
-          <article class="service-card">
-            <h3 class="service-card__title">Referral & Coordination</h3>
-            <p class="service-card__desc">Hospital and specialist coordination across China; we connect you with the right experts.</p>
-          </article>
-          <article class="service-card">
-            <h3 class="service-card__title">In-Country Accompaniment</h3>
-            <p class="service-card__desc">On-site care coordination, appointment support, and medical interpretation when you are in China.</p>
-          </article>
-          <article class="service-card">
-            <h3 class="service-card__title">Remote Consultation</h3>
-            <p class="service-card__desc">Follow-up and continuity of care via secure remote channels after your visit.</p>
-          </article>
+        <p class="sec__label">What we offer</p>
+        <h2 id="services-heading" class="sec__title">Our Services</h2>
+        <p class="sec__intro">End-to-end support for international patients: from pre-arrival planning to in-country coordination and follow-up.</p>
+        <div class="accordion">
+          <div class="accordion__item">
+            <button type="button" class="accordion__head" aria-expanded="false" aria-controls="acc-1" id="acc-head-1">International Medical Consulting</button>
+            <div class="accordion__panel" id="acc-1" role="region" aria-labelledby="acc-head-1">
+              <div class="accordion__panel-inner">
+                <p>Pre-arrival consultation, case review, and treatment pathway guidance tailored to your condition and preferences.</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion__item">
+            <button type="button" class="accordion__head" aria-expanded="false" aria-controls="acc-2" id="acc-head-2">Referral & Hospital Coordination</button>
+            <div class="accordion__panel" id="acc-2" role="region" aria-labelledby="acc-head-2">
+              <div class="accordion__panel-inner">
+                <p>We connect you with the right hospitals and specialists across China and coordinate appointments and logistics.</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion__item">
+            <button type="button" class="accordion__head" aria-expanded="false" aria-controls="acc-3" id="acc-head-3">In-Country Accompaniment</button>
+            <div class="accordion__panel" id="acc-3" role="region" aria-labelledby="acc-head-3">
+              <div class="accordion__panel-inner">
+                <p>On-site support during your stay: appointment escort, medical interpretation, and day-to-day care coordination.</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion__item">
+            <button type="button" class="accordion__head" aria-expanded="false" aria-controls="acc-4" id="acc-head-4">Remote Consultation & Follow-up</button>
+            <div class="accordion__panel" id="acc-4" role="region" aria-labelledby="acc-head-4">
+              <div class="accordion__panel-inner">
+                <p>Secure remote consultations and continuity of care after you return home.</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion__item">
+            <button type="button" class="accordion__head" aria-expanded="false" aria-controls="acc-5" id="acc-head-5">Documentation & Interpretation</button>
+            <div class="accordion__panel" id="acc-5" role="region" aria-labelledby="acc-head-5">
+              <div class="accordion__panel-inner">
+                <p>Translation of medical records, assistance with forms and reports, and clear communication in English throughout.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="why-china" aria-labelledby="why-china-heading">
+    <section id="process" aria-labelledby="process-heading">
       <div class="container">
-        <h2 id="why-china-heading" class="section__title">Why Choose Healthcare in China</h2>
-        <p class="section__intro">China offers a growing range of high-quality medical options for international patients.</p>
-        <div class="reasons">
-          <div class="reason-block">
-            <h3>Quality & scale</h3>
-            <ul>
-              <li>Leading hospitals and research centres in major cities</li>
-              <li>Advanced equipment and specialised disciplines</li>
-              <li>Combination of Western protocols and TCM where appropriate</li>
-            </ul>
+        <p class="sec__label">From inquiry to follow-up</p>
+        <h2 id="process-heading" class="sec__title">How It Works</h2>
+        <p class="sec__intro">A clear path from your first contact to ongoing support after treatment.</p>
+        <div class="steps">
+          <div class="step">
+            <span class="step__num" aria-hidden="true">1</span>
+            <div>
+              <h3 class="step__title">Inquiry & assessment</h3>
+              <p class="step__text">You reach out by email or WhatsApp. We review your situation, answer questions, and outline how we can help.</p>
+            </div>
           </div>
-          <div class="reason-block">
-            <h3>Access & value</h3>
-            <ul>
-              <li>Efficient scheduling and shorter wait times in many specialties</li>
-              <li>Competitive costs for complex procedures</li>
-              <li>Growing English-speaking and international patient services</li>
-            </ul>
+          <div class="step">
+            <span class="step__num" aria-hidden="true">2</span>
+            <div>
+              <h3 class="step__title">Medical review & recommendations</h3>
+              <p class="step__text">We review your medical information and recommend suitable hospitals and specialists for your needs.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step__num" aria-hidden="true">3</span>
+            <div>
+              <h3 class="step__title">Hospital coordination & support</h3>
+              <p class="step__text">We coordinate appointments, assist with documentation, and provide accompaniment and interpretation when you are in China.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step__num" aria-hidden="true">4</span>
+            <div>
+              <h3 class="step__title">Follow-up & continuity of care</h3>
+              <p class="step__text">After your visit, we support follow-up communication with your doctors and any remote consultations you need.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="why-us" aria-labelledby="why-us-heading">
+    <section id="why-us" class="alt" aria-labelledby="why-us-heading">
       <div class="container">
-        <h2 id="why-us-heading" class="section__title">Why Choose ChinaMedAdvisory</h2>
-        <p class="section__intro">Independent, patient-centred advisory so you can make informed decisions.</p>
-        <ul class="reason-block" style="padding-left: 1.25rem; margin: 0; color: var(--color-text-muted);">
-          <li>Independent medical advisory — we work for you, not for hospitals</li>
-          <li>End-to-end support from first inquiry to post-treatment follow-up</li>
-          <li>Clear communication, documentation assistance, and coordination in English</li>
-          <li>Transparent processes and respect for your privacy and preferences</li>
-        </ul>
+        <p class="sec__label">Why work with us</p>
+        <h2 id="why-us-heading" class="sec__title">Why Choose ChinaMedAdvisory</h2>
+        <p class="sec__intro">Independent, patient-centred advisory so you can make informed decisions with full transparency.</p>
+        <div class="why-grid">
+          <div class="why-item">
+            <div>
+              <h3 class="why-item__title">Independent advisory</h3>
+              <p class="why-item__text">We are not hospital-affiliated. Our recommendations are based on your needs, not commissions.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div>
+              <h3 class="why-item__title">End-to-end support</h3>
+              <p class="why-item__text">From first inquiry to post-treatment follow-up — one consistent point of contact throughout your journey.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div>
+              <h3 class="why-item__title">Clear English communication</h3>
+              <p class="why-item__text">Documentation assistance, coordination in English, and respect for your privacy and preferences.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div>
+              <h3 class="why-item__title">Transparent process</h3>
+              <p class="why-item__text">No hidden fees or pressure. We explain options clearly so you stay in control of your care.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="contact" aria-labelledby="contact-heading">
       <div class="container">
-        <h2 id="contact-heading" class="section__title">Contact Us</h2>
-        <div class="contact">
-          <h3 class="contact__title">Get in touch</h3>
-          <ul class="contact__list">
-            <li class="contact__item"><strong>Email:</strong> <a href="mailto:contact@chinamedadvisory.com">contact@chinamedadvisory.com</a></li>
-            <li class="contact__item"><strong>WhatsApp:</strong> <a href="#" rel="noopener">[WhatsApp 号码占位]</a></li>
-          </ul>
+        <p class="sec__label">Get in touch</p>
+        <h2 id="contact-heading" class="sec__title">Contact Us</h2>
+        <p class="sec__intro">Reach out for a confidential conversation about your medical goals. We typically respond within 24 hours.</p>
+        <div class="contact-box">
+          <p><strong>Email:</strong> <a href="mailto:hugchen1117@gmail.com">hugchen1117@gmail.com</a></p>
+          <p><strong>WhatsApp:</strong> Available upon request. Please contact us by email to connect.</p>
+          <p style="margin-top: var(--space-3);">
+            <button type="button" class="btn btn--primary" id="open-modal-contact">Submit inquiry form</button>
+          </p>
         </div>
       </div>
     </section>
@@ -278,8 +473,185 @@
 
   <footer>
     <div class="container">
-      <p>© ChinaMedAdvisory. Professional Medical Advisory & Care Coordination in China.</p>
+      <p>© ChinaMedAdvisory. Professional Medical Advisory & Care Coordination in China for International Patients.</p>
     </div>
   </footer>
+
+  <div class="modal-overlay" id="inquiry-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal">
+      <div class="modal__head">
+        <h2 class="modal__title" id="modal-title">International Patient Inquiry</h2>
+        <button type="button" class="modal__close" id="close-modal" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal__body">
+        <div class="form-wrapper" id="form-wrapper">
+          <form id="inquiry-form" novalidate>
+            <input type="hidden" name="_subject" value="New International Patient Inquiry" />
+            <div class="form-group">
+              <label for="f-name">Full name <span class="req">*</span></label>
+              <input type="text" id="f-name" name="name" required autocomplete="name" />
+              <p class="err" id="err-name" role="alert"></p>
+            </div>
+            <div class="form-group">
+              <label for="f-email">Email <span class="req">*</span></label>
+              <input type="email" id="f-email" name="email" required autocomplete="email" />
+              <p class="err" id="err-email" role="alert"></p>
+            </div>
+            <div class="form-group">
+              <label for="f-country">Country / Region</label>
+              <input type="text" id="f-country" name="country" autocomplete="country" />
+            </div>
+            <div class="form-group">
+              <label for="f-concern">Medical concern</label>
+              <textarea id="f-concern" name="concern"></textarea>
+            </div>
+            <p class="form-privacy">Your details are used only to respond to your inquiry. No data is stored.</p>
+            <div class="form-actions">
+              <button type="submit" class="btn btn--primary">Submit</button>
+              <button type="button" class="btn btn--outline" id="cancel-form">Cancel</button>
+            </div>
+          </form>
+        </div>
+        <div class="form-done" id="form-done">
+          <p><strong>Thank you, we will contact you within 24 hours.</strong></p>
+          <button type="button" class="btn btn--primary" id="close-after-done">Close</button>
+        </div>
+        <div class="form-error-msg" id="form-error-msg" style="display: none; margin-top: 1rem; font-size: 0.875rem; color: var(--error);"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // Replace with your Formspree form ID (create at formspree.io, set notification email to hugchen1117@gmail.com)
+      var FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORMSPREE_FORM_ID';
+
+      function openModal() {
+        var modal = document.getElementById('inquiry-modal');
+        var wrapper = document.getElementById('form-wrapper');
+        var done = document.getElementById('form-done');
+        var errMsg = document.getElementById('form-error-msg');
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        wrapper.classList.remove('is-hidden');
+        done.classList.remove('is-visible');
+        errMsg.style.display = 'none';
+        errMsg.textContent = '';
+        document.getElementById('inquiry-form').reset();
+        document.getElementById('err-name').textContent = '';
+        document.getElementById('err-email').textContent = '';
+        document.getElementById('f-name').classList.remove('is-invalid');
+        document.getElementById('f-email').classList.remove('is-invalid');
+      }
+
+      function closeModal() {
+        var modal = document.getElementById('inquiry-modal');
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+
+      document.getElementById('open-modal-hero').addEventListener('click', openModal);
+      document.getElementById('open-modal-contact').addEventListener('click', openModal);
+      document.getElementById('close-modal').addEventListener('click', closeModal);
+      document.getElementById('cancel-form').addEventListener('click', closeModal);
+      document.getElementById('close-after-done').addEventListener('click', closeModal);
+
+      document.getElementById('inquiry-modal').addEventListener('click', function(e) {
+        if (e.target.id === 'inquiry-modal') closeModal();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('inquiry-modal').classList.contains('is-open')) closeModal();
+      });
+
+      document.getElementById('inquiry-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var form = document.getElementById('inquiry-form');
+        var nameEl = document.getElementById('f-name');
+        var emailEl = document.getElementById('f-email');
+        var errName = document.getElementById('err-name');
+        var errEmail = document.getElementById('err-email');
+        var errMsg = document.getElementById('form-error-msg');
+        var submitBtn = form.querySelector('button[type="submit"]');
+        errName.textContent = '';
+        errEmail.textContent = '';
+        errMsg.style.display = 'none';
+        errMsg.textContent = '';
+        nameEl.classList.remove('is-invalid');
+        emailEl.classList.remove('is-invalid');
+
+        var name = (nameEl.value || '').trim();
+        var email = (emailEl.value || '').trim();
+
+        if (!name) {
+          errName.textContent = 'This field is required';
+          nameEl.classList.add('is-invalid');
+          return;
+        }
+        if (!email) {
+          errEmail.textContent = 'This field is required';
+          emailEl.classList.add('is-invalid');
+          return;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          errEmail.textContent = 'Please enter a valid email address';
+          emailEl.classList.add('is-invalid');
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+
+        fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        })
+          .then(function(r) { return r.json(); })
+          .then(function(data) {
+            if (data.ok) {
+              document.getElementById('form-wrapper').classList.add('is-hidden');
+              document.getElementById('form-done').classList.add('is-visible');
+            } else {
+              errMsg.textContent = data.error || 'Something went wrong. Please try again or email us directly.';
+              errMsg.style.display = 'block';
+            }
+          })
+          .catch(function() {
+            errMsg.textContent = 'Something went wrong. Please try again or email us directly.';
+            errMsg.style.display = 'block';
+          })
+          .finally(function() {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit';
+          });
+      });
+
+      document.querySelectorAll('.accordion__head').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var item = btn.closest('.accordion__item');
+          var isOpen = item.classList.contains('is-open');
+          document.querySelectorAll('.accordion__item').forEach(function(i) {
+            i.classList.remove('is-open');
+            i.querySelector('.accordion__head').setAttribute('aria-expanded', 'false');
+            var panel = i.querySelector('.accordion__panel');
+            if (panel) panel.style.maxHeight = null;
+          });
+          if (!isOpen) {
+            item.classList.add('is-open');
+            btn.setAttribute('aria-expanded', 'true');
+            var panel = item.querySelector('.accordion__panel');
+            if (panel) panel.style.maxHeight = panel.scrollHeight + 'px';
+          }
+        });
+      });
+      var firstAcc = document.querySelector('.accordion__item');
+      if (firstAcc) {
+        firstAcc.classList.add('is-open');
+        firstAcc.querySelector('.accordion__head').setAttribute('aria-expanded', 'true');
+        var panel = firstAcc.querySelector('.accordion__panel');
+        if (panel) panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    })();
+  </script>
 </body>
 </html>
