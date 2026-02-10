@@ -82,10 +82,22 @@
     }
     .nav__menu a:hover { color: var(--accent); }
     .nav__lang {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
       font-size: 0.8125rem;
-      color: var(--text-muted);
     }
-    .nav__lang span { margin: 0 0.2rem; }
+    .nav__lang button {
+      background: none;
+      border: none;
+      padding: 0.25rem 0.5rem;
+      font-size: inherit;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .nav__lang button:hover { color: var(--text); }
+    .nav__lang button.is-active { color: var(--accent); font-weight: 600; }
     @media (max-width: 768px) {
       .nav__menu { display: none; }
     }
@@ -312,22 +324,26 @@
     <div class="nav__inner">
       <a class="nav__brand" href="#">ChinaMedAdvisory</a>
       <ul class="nav__menu">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#why-us">Why Us</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#services" data-i18n="nav_services">Services</a></li>
+        <li><a href="#process" data-i18n="nav_process">Process</a></li>
+        <li><a href="#why-us" data-i18n="nav_why_us">Why Us</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
       </ul>
-      <span class="nav__lang">EN <span>|</span> 中文</span>
+      <div class="nav__lang">
+        <button type="button" data-lang="en" class="is-active" aria-label="English">EN</button>
+        <span aria-hidden="true">|</span>
+        <button type="button" data-lang="zh" aria-label="中文">中文</button>
+      </div>
     </div>
   </nav>
 
   <header class="hero">
     <div class="container">
-      <h1 class="hero__title">Your trusted partner for <span class="hl">medical care in China</span></h1>
-      <p class="hero__sub">We provide independent medical advisory, referral, and accompaniment so international patients can access China’s healthcare with clarity and confidence.</p>
+      <h1 class="hero__title" data-i18n="hero_title" data-i18n-html="1">Your trusted partner for <span class="hl">medical care in China</span></h1>
+      <p class="hero__sub" data-i18n="hero_sub">We provide independent medical advisory, referral, and accompaniment so international patients can access China’s healthcare with clarity and confidence.</p>
       <div class="hero__ctas">
-        <a class="btn btn--primary" href="#contact">Contact Us</a>
-        <button type="button" class="btn btn--outline" id="open-modal-hero">Request Consultation</button>
+        <a class="btn btn--primary" href="#contact" data-i18n="hero_contact">Contact Us</a>
+        <button type="button" class="btn btn--outline" id="open-modal-hero" data-i18n="hero_inquiry">Request Consultation</button>
       </div>
     </div>
   </header>
@@ -335,47 +351,47 @@
   <main>
     <section id="services" class="alt" aria-labelledby="services-heading">
       <div class="container">
-        <p class="sec__label">What we offer</p>
-        <h2 id="services-heading" class="sec__title">Our Services</h2>
-        <p class="sec__intro">End-to-end support for international patients: from pre-arrival planning to in-country coordination and follow-up.</p>
+        <p class="sec__label" data-i18n="label_services">What we offer</p>
+        <h2 id="services-heading" class="sec__title" data-i18n="services_title">Our Services</h2>
+        <p class="sec__intro" data-i18n="services_intro">End-to-end support for international patients: from pre-arrival planning to in-country coordination and follow-up.</p>
         <div class="accordion">
           <div class="accordion__item">
-            <button type="button" class="accordion__head" aria-expanded="false" aria-controls="acc-1" id="acc-head-1">International Medical Consulting</button>
+            <button type="button" class="accordion__head" aria-expanded="false" aria-controls="acc-1" id="acc-head-1" data-i18n="svc1_title">International Medical Consulting</button>
             <div class="accordion__panel" id="acc-1" role="region" aria-labelledby="acc-head-1">
               <div class="accordion__panel-inner">
-                <p>Pre-arrival consultation, case review, and treatment pathway guidance tailored to your condition and preferences.</p>
+                <p data-i18n="svc1_desc">Pre-arrival consultation, case review, and treatment pathway guidance tailored to your condition and preferences.</p>
               </div>
             </div>
           </div>
           <div class="accordion__item">
-            <button type="button" class="accordion__head" aria-expanded="false" aria-controls="acc-2" id="acc-head-2">Referral & Hospital Coordination</button>
+            <button type="button" class="accordion__head" aria-expanded="false" aria-controls="acc-2" id="acc-head-2" data-i18n="svc2_title">Referral & Hospital Coordination</button>
             <div class="accordion__panel" id="acc-2" role="region" aria-labelledby="acc-head-2">
               <div class="accordion__panel-inner">
-                <p>We connect you with the right hospitals and specialists across China and coordinate appointments and logistics.</p>
+                <p data-i18n="svc2_desc">We connect you with the right hospitals and specialists across China and coordinate appointments and logistics.</p>
               </div>
             </div>
           </div>
           <div class="accordion__item">
-            <button type="button" class="accordion__head" aria-expanded="false" aria-controls="acc-3" id="acc-head-3">In-Country Accompaniment</button>
+            <button type="button" class="accordion__head" aria-expanded="false" aria-controls="acc-3" id="acc-head-3" data-i18n="svc3_title">In-Country Accompaniment</button>
             <div class="accordion__panel" id="acc-3" role="region" aria-labelledby="acc-head-3">
               <div class="accordion__panel-inner">
-                <p>On-site support during your stay: appointment escort, medical interpretation, and day-to-day care coordination.</p>
+                <p data-i18n="svc3_desc">On-site support during your stay: appointment escort, medical interpretation, and day-to-day care coordination.</p>
               </div>
             </div>
           </div>
           <div class="accordion__item">
-            <button type="button" class="accordion__head" aria-expanded="false" aria-controls="acc-4" id="acc-head-4">Remote Consultation & Follow-up</button>
+            <button type="button" class="accordion__head" aria-expanded="false" aria-controls="acc-4" id="acc-head-4" data-i18n="svc4_title">Remote Consultation & Follow-up</button>
             <div class="accordion__panel" id="acc-4" role="region" aria-labelledby="acc-head-4">
               <div class="accordion__panel-inner">
-                <p>Secure remote consultations and continuity of care after you return home.</p>
+                <p data-i18n="svc4_desc">Secure remote consultations and continuity of care after you return home.</p>
               </div>
             </div>
           </div>
           <div class="accordion__item">
-            <button type="button" class="accordion__head" aria-expanded="false" aria-controls="acc-5" id="acc-head-5">Documentation & Interpretation</button>
+            <button type="button" class="accordion__head" aria-expanded="false" aria-controls="acc-5" id="acc-head-5" data-i18n="svc5_title">Documentation & Interpretation</button>
             <div class="accordion__panel" id="acc-5" role="region" aria-labelledby="acc-head-5">
               <div class="accordion__panel-inner">
-                <p>Translation of medical records, assistance with forms and reports, and clear communication in English throughout.</p>
+                <p data-i18n="svc5_desc">Translation of medical records, assistance with forms and reports, and clear communication in English throughout.</p>
               </div>
             </div>
           </div>
@@ -385,36 +401,36 @@
 
     <section id="process" aria-labelledby="process-heading">
       <div class="container">
-        <p class="sec__label">From inquiry to follow-up</p>
-        <h2 id="process-heading" class="sec__title">How It Works</h2>
-        <p class="sec__intro">A clear path from your first contact to ongoing support after treatment.</p>
+        <p class="sec__label" data-i18n="label_process">From inquiry to follow-up</p>
+        <h2 id="process-heading" class="sec__title" data-i18n="process_title">How It Works</h2>
+        <p class="sec__intro" data-i18n="process_intro">A clear path from your first contact to ongoing support after treatment.</p>
         <div class="steps">
           <div class="step">
             <span class="step__num" aria-hidden="true">1</span>
             <div>
-              <h3 class="step__title">Inquiry & assessment</h3>
-              <p class="step__text">You reach out by email or WhatsApp. We review your situation, answer questions, and outline how we can help.</p>
+              <h3 class="step__title" data-i18n="step1_title">Inquiry & assessment</h3>
+              <p class="step__text" data-i18n="step1_text">You reach out by email or WhatsApp. We review your situation, answer questions, and outline how we can help.</p>
             </div>
           </div>
           <div class="step">
             <span class="step__num" aria-hidden="true">2</span>
             <div>
-              <h3 class="step__title">Medical review & recommendations</h3>
-              <p class="step__text">We review your medical information and recommend suitable hospitals and specialists for your needs.</p>
+              <h3 class="step__title" data-i18n="step2_title">Medical review & recommendations</h3>
+              <p class="step__text" data-i18n="step2_text">We review your medical information and recommend suitable hospitals and specialists for your needs.</p>
             </div>
           </div>
           <div class="step">
             <span class="step__num" aria-hidden="true">3</span>
             <div>
-              <h3 class="step__title">Hospital coordination & support</h3>
-              <p class="step__text">We coordinate appointments, assist with documentation, and provide accompaniment and interpretation when you are in China.</p>
+              <h3 class="step__title" data-i18n="step3_title">Hospital coordination & support</h3>
+              <p class="step__text" data-i18n="step3_text">We coordinate appointments, assist with documentation, and provide accompaniment and interpretation when you are in China.</p>
             </div>
           </div>
           <div class="step">
             <span class="step__num" aria-hidden="true">4</span>
             <div>
-              <h3 class="step__title">Follow-up & continuity of care</h3>
-              <p class="step__text">After your visit, we support follow-up communication with your doctors and any remote consultations you need.</p>
+              <h3 class="step__title" data-i18n="step4_title">Follow-up & continuity of care</h3>
+              <p class="step__text" data-i18n="step4_text">After your visit, we support follow-up communication with your doctors and any remote consultations you need.</p>
             </div>
           </div>
         </div>
@@ -423,32 +439,32 @@
 
     <section id="why-us" class="alt" aria-labelledby="why-us-heading">
       <div class="container">
-        <p class="sec__label">Why work with us</p>
-        <h2 id="why-us-heading" class="sec__title">Why Choose ChinaMedAdvisory</h2>
-        <p class="sec__intro">Independent, patient-centred advisory so you can make informed decisions with full transparency.</p>
+        <p class="sec__label" data-i18n="label_why_us">Why work with us</p>
+        <h2 id="why-us-heading" class="sec__title" data-i18n="why_us_title">Why Choose ChinaMedAdvisory</h2>
+        <p class="sec__intro" data-i18n="why_us_intro">Independent, patient-centred advisory so you can make informed decisions with full transparency.</p>
         <div class="why-grid">
           <div class="why-item">
             <div>
-              <h3 class="why-item__title">Independent advisory</h3>
-              <p class="why-item__text">We are not hospital-affiliated. Our recommendations are based on your needs, not commissions.</p>
+              <h3 class="why-item__title" data-i18n="why1_title">Independent advisory</h3>
+              <p class="why-item__text" data-i18n="why1_text">We are not hospital-affiliated. Our recommendations are based on your needs, not commissions.</p>
             </div>
           </div>
           <div class="why-item">
             <div>
-              <h3 class="why-item__title">End-to-end support</h3>
-              <p class="why-item__text">From first inquiry to post-treatment follow-up — one consistent point of contact throughout your journey.</p>
+              <h3 class="why-item__title" data-i18n="why2_title">End-to-end support</h3>
+              <p class="why-item__text" data-i18n="why2_text">From first inquiry to post-treatment follow-up — one consistent point of contact throughout your journey.</p>
             </div>
           </div>
           <div class="why-item">
             <div>
-              <h3 class="why-item__title">Clear English communication</h3>
-              <p class="why-item__text">Documentation assistance, coordination in English, and respect for your privacy and preferences.</p>
+              <h3 class="why-item__title" data-i18n="why3_title">Clear English communication</h3>
+              <p class="why-item__text" data-i18n="why3_text">Documentation assistance, coordination in English, and respect for your privacy and preferences.</p>
             </div>
           </div>
           <div class="why-item">
             <div>
-              <h3 class="why-item__title">Transparent process</h3>
-              <p class="why-item__text">No hidden fees or pressure. We explain options clearly so you stay in control of your care.</p>
+              <h3 class="why-item__title" data-i18n="why4_title">Transparent process</h3>
+              <p class="why-item__text" data-i18n="why4_text">No hidden fees or pressure. We explain options clearly so you stay in control of your care.</p>
             </div>
           </div>
         </div>
@@ -457,14 +473,14 @@
 
     <section id="contact" aria-labelledby="contact-heading">
       <div class="container">
-        <p class="sec__label">Get in touch</p>
-        <h2 id="contact-heading" class="sec__title">Contact Us</h2>
-        <p class="sec__intro">Reach out for a confidential conversation about your medical goals. We typically respond within 24 hours.</p>
+        <p class="sec__label" data-i18n="label_contact">Get in touch</p>
+        <h2 id="contact-heading" class="sec__title" data-i18n="contact_title">Contact Us</h2>
+        <p class="sec__intro" data-i18n="contact_intro">Reach out for a confidential conversation about your medical goals. We typically respond within 24 hours.</p>
         <div class="contact-box">
-          <p><strong>Email:</strong> <a href="mailto:hugchen1117@gmail.com">hugchen1117@gmail.com</a></p>
-          <p><strong>WhatsApp:</strong> Available upon request. Please contact us by email to connect.</p>
+          <p><strong data-i18n="contact_email_label">Email:</strong> <a href="mailto:hugchen1117@gmail.com">hugchen1117@gmail.com</a></p>
+          <p><strong data-i18n="contact_whatsapp_label">WhatsApp:</strong> <span data-i18n="contact_whatsapp">Available upon request. Please contact us by email to connect.</span></p>
           <p style="margin-top: var(--space-3);">
-            <button type="button" class="btn btn--primary" id="open-modal-contact">Submit inquiry form</button>
+            <button type="button" class="btn btn--primary" id="open-modal-contact" data-i18n="contact_btn">Submit inquiry form</button>
           </p>
         </div>
       </div>
@@ -473,14 +489,14 @@
 
   <footer>
     <div class="container">
-      <p>© ChinaMedAdvisory. Professional Medical Advisory & Care Coordination in China for International Patients.</p>
+      <p data-i18n="footer">© ChinaMedAdvisory. Professional Medical Advisory & Care Coordination in China for International Patients.</p>
     </div>
   </footer>
 
   <div class="modal-overlay" id="inquiry-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
     <div class="modal">
       <div class="modal__head">
-        <h2 class="modal__title" id="modal-title">International Patient Inquiry</h2>
+        <h2 class="modal__title" id="modal-title" data-i18n="modal_title">International Patient Inquiry</h2>
         <button type="button" class="modal__close" id="close-modal" aria-label="Close">&times;</button>
       </div>
       <div class="modal__body">
@@ -488,33 +504,33 @@
           <form id="inquiry-form" novalidate>
             <input type="hidden" name="_subject" value="New International Patient Inquiry" />
             <div class="form-group">
-              <label for="f-name">Full name <span class="req">*</span></label>
+              <label for="f-name" data-i18n="form_name">Full name <span class="req">*</span></label>
               <input type="text" id="f-name" name="name" required autocomplete="name" />
               <p class="err" id="err-name" role="alert"></p>
             </div>
             <div class="form-group">
-              <label for="f-email">Email <span class="req">*</span></label>
+              <label for="f-email" data-i18n="form_email">Email <span class="req">*</span></label>
               <input type="email" id="f-email" name="email" required autocomplete="email" />
               <p class="err" id="err-email" role="alert"></p>
             </div>
             <div class="form-group">
-              <label for="f-country">Country / Region</label>
+              <label for="f-country" data-i18n="form_country">Country / Region</label>
               <input type="text" id="f-country" name="country" autocomplete="country" />
             </div>
             <div class="form-group">
-              <label for="f-concern">Medical concern</label>
+              <label for="f-concern" data-i18n="form_concern">Medical concern</label>
               <textarea id="f-concern" name="concern"></textarea>
             </div>
-            <p class="form-privacy">Your details are used only to respond to your inquiry. No data is stored.</p>
+            <p class="form-privacy" data-i18n="form_privacy">Your details are used only to respond to your inquiry. No data is stored.</p>
             <div class="form-actions">
-              <button type="submit" class="btn btn--primary">Submit</button>
-              <button type="button" class="btn btn--outline" id="cancel-form">Cancel</button>
+              <button type="submit" class="btn btn--primary" data-i18n="form_submit">Submit</button>
+              <button type="button" class="btn btn--outline" id="cancel-form" data-i18n="form_cancel">Cancel</button>
             </div>
           </form>
         </div>
         <div class="form-done" id="form-done">
-          <p><strong>Thank you, we will contact you within 24 hours.</strong></p>
-          <button type="button" class="btn btn--primary" id="close-after-done">Close</button>
+          <p><strong data-i18n="form_done_msg">Thank you, we will contact you within 24 hours.</strong></p>
+          <button type="button" class="btn btn--primary" id="close-after-done" data-i18n="form_close">Close</button>
         </div>
         <div class="form-error-msg" id="form-error-msg" style="display: none; margin-top: 1rem; font-size: 0.875rem; color: var(--error);"></div>
       </div>
@@ -525,6 +541,183 @@
     (function() {
       // Replace with your Formspree form ID (create at formspree.io, set notification email to hugchen1117@gmail.com)
       var FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORMSPREE_FORM_ID';
+
+      var STORAGE_KEY = 'chinamedadvisory-lang';
+      var strings = {
+        en: {
+          nav_services: 'Services',
+          nav_process: 'Process',
+          nav_why_us: 'Why Us',
+          nav_contact: 'Contact',
+          hero_title: 'Your trusted partner for medical care in China',
+          hero_title_hl: 'medical care in China',
+          hero_sub: 'We provide independent medical advisory, referral, and accompaniment so international patients can access China\'s healthcare with clarity and confidence.',
+          hero_contact: 'Contact Us',
+          hero_inquiry: 'Request Consultation',
+          label_services: 'What we offer',
+          services_title: 'Our Services',
+          services_intro: 'End-to-end support for international patients: from pre-arrival planning to in-country coordination and follow-up.',
+          svc1_title: 'International Medical Consulting',
+          svc1_desc: 'Pre-arrival consultation, case review, and treatment pathway guidance tailored to your condition and preferences.',
+          svc2_title: 'Referral & Hospital Coordination',
+          svc2_desc: 'We connect you with the right hospitals and specialists across China and coordinate appointments and logistics.',
+          svc3_title: 'In-Country Accompaniment',
+          svc3_desc: 'On-site support during your stay: appointment escort, medical interpretation, and day-to-day care coordination.',
+          svc4_title: 'Remote Consultation & Follow-up',
+          svc4_desc: 'Secure remote consultations and continuity of care after you return home.',
+          svc5_title: 'Documentation & Interpretation',
+          svc5_desc: 'Translation of medical records, assistance with forms and reports, and clear communication in English throughout.',
+          label_process: 'From inquiry to follow-up',
+          process_title: 'How It Works',
+          process_intro: 'A clear path from your first contact to ongoing support after treatment.',
+          step1_title: 'Inquiry & assessment',
+          step1_text: 'You reach out by email or WhatsApp. We review your situation, answer questions, and outline how we can help.',
+          step2_title: 'Medical review & recommendations',
+          step2_text: 'We review your medical information and recommend suitable hospitals and specialists for your needs.',
+          step3_title: 'Hospital coordination & support',
+          step3_text: 'We coordinate appointments, assist with documentation, and provide accompaniment and interpretation when you are in China.',
+          step4_title: 'Follow-up & continuity of care',
+          step4_text: 'After your visit, we support follow-up communication with your doctors and any remote consultations you need.',
+          label_why_us: 'Why work with us',
+          why_us_title: 'Why Choose ChinaMedAdvisory',
+          why_us_intro: 'Independent, patient-centred advisory so you can make informed decisions with full transparency.',
+          why1_title: 'Independent advisory',
+          why1_text: 'We are not hospital-affiliated. Our recommendations are based on your needs, not commissions.',
+          why2_title: 'End-to-end support',
+          why2_text: 'From first inquiry to post-treatment follow-up — one consistent point of contact throughout your journey.',
+          why3_title: 'Clear English communication',
+          why3_text: 'Documentation assistance, coordination in English, and respect for your privacy and preferences.',
+          why4_title: 'Transparent process',
+          why4_text: 'No hidden fees or pressure. We explain options clearly so you stay in control of your care.',
+          label_contact: 'Get in touch',
+          contact_title: 'Contact Us',
+          contact_intro: 'Reach out for a confidential conversation about your medical goals. We typically respond within 24 hours.',
+          contact_email_label: 'Email:',
+          contact_whatsapp_label: 'WhatsApp:',
+          contact_whatsapp: 'Available upon request. Please contact us by email to connect.',
+          contact_btn: 'Submit inquiry form',
+          footer: '© ChinaMedAdvisory. Professional Medical Advisory & Care Coordination in China for International Patients.',
+          modal_title: 'International Patient Inquiry',
+          form_name: 'Full name',
+          form_email: 'Email',
+          form_country: 'Country / Region',
+          form_concern: 'Medical concern',
+          form_privacy: 'Your details are used only to respond to your inquiry. No data is stored.',
+          form_submit: 'Submit',
+          form_cancel: 'Cancel',
+          form_done_msg: 'Thank you, we will contact you within 24 hours.',
+          form_close: 'Close',
+          form_err_required: 'This field is required',
+          form_err_email: 'Please enter a valid email address',
+          form_err_network: 'Something went wrong. Please try again or email us directly.',
+          form_sending: 'Sending…'
+        },
+        zh: {
+          nav_services: '服务',
+          nav_process: '流程',
+          nav_why_us: '为何选我们',
+          nav_contact: '联系',
+          hero_title: '您在中国的医疗顾问与协调伙伴',
+          hero_title_hl: '医疗顾问与协调伙伴',
+          hero_sub: '我们为国际患者提供独立医疗顾问、转诊与陪诊服务，让您在中国就医更清晰、更安心。',
+          hero_contact: '联系我们',
+          hero_inquiry: '预约咨询',
+          label_services: '服务内容',
+          services_title: '我们的服务',
+          services_intro: '从行前规划、在华协调到诊后随访，我们为国际患者提供全流程支持。',
+          svc1_title: '国际医疗咨询',
+          svc1_desc: '行前与您沟通病情、评估病历，并根据您的情况与意愿给出就诊路径建议。',
+          svc2_title: '转诊与医院协调',
+          svc2_desc: '帮您对接国内合适的医院与专家，并协调预约与相关安排。',
+          svc3_title: '在华陪诊',
+          svc3_desc: '您在中国期间，我们提供陪同就诊、医学口译及日常协调，让您省心。',
+          svc4_title: '远程会诊与随访',
+          svc4_desc: '回国后如需继续沟通医生或远程会诊，我们协助衔接，不脱节。',
+          svc5_title: '文书与口笔译',
+          svc5_desc: '病历翻译、表格与报告协助，全程用英文与您沟通，信息清晰可查。',
+          label_process: '从咨询到随访',
+          process_title: '服务流程',
+          process_intro: '从您第一次联系我们，到诊后持续支持，每一步都可预期。',
+          step1_title: '咨询与评估',
+          step1_text: '您通过邮件或 WhatsApp 联系我们后，我们会了解您的情况、回答疑问，并说明我们能如何协助。',
+          step2_title: '医疗评估与建议',
+          step2_text: '我们根据您的医疗信息，推荐合适的医院与专家。',
+          step3_title: '医院协调与支持',
+          step3_text: '我们协调预约、协助文书，并在您抵达中国后提供陪诊与口译。',
+          step4_title: '随访与延续护理',
+          step4_text: '就诊结束后，如需与医生保持联系或远程会诊，我们继续协助衔接。',
+          label_why_us: '为何选我们',
+          why_us_title: '为何选择 ChinaMedAdvisory',
+          why_us_intro: '我们独立运作、以您为中心，只为您提供透明、可信的顾问服务，方便您做决定。',
+          why1_title: '独立顾问',
+          why1_text: '我们与医院无隶属关系，建议完全基于您的需求，而非佣金。',
+          why2_title: '全流程支持',
+          why2_text: '从首次咨询到诊后随访，始终由固定联系人对接，不换人、不脱节。',
+          why3_title: '英文沟通清晰',
+          why3_text: '文书与口笔译支持、全程英文沟通，并严格尊重您的隐私与偏好。',
+          why4_title: '流程透明',
+          why4_text: '无隐藏费用、不催单。我们会把选项说清楚，决定权在您。',
+          label_contact: '联系我们',
+          contact_title: '联系我们',
+          contact_intro: '如有医疗方面的需求或疑问，欢迎联系。我们一般在 24 小时内回复。',
+          contact_email_label: '邮箱：',
+          contact_whatsapp_label: 'WhatsApp：',
+          contact_whatsapp: '可通过邮件联系我们获取。',
+          contact_btn: '提交咨询表单',
+          footer: '© ChinaMedAdvisory。为国际患者提供在华医疗顾问与协调服务。',
+          modal_title: '国际患者咨询',
+          form_name: '姓名',
+          form_email: '邮箱',
+          form_country: '国家 / 地区',
+          form_concern: '医疗咨询内容',
+          form_privacy: '我们仅用您提供的信息回复咨询，不会留存或提供给第三方。',
+          form_submit: '提交',
+          form_cancel: '取消',
+          form_done_msg: '感谢您，我们会在 24 小时内与您联系。',
+          form_close: '关闭',
+          form_err_required: '请填写',
+          form_err_email: '请填写有效的邮箱地址',
+          form_err_network: '提交失败，请稍后重试或直接发邮件联系我们。',
+          form_sending: '提交中…'
+        }
+      };
+
+      var currentLang = (function() {
+        try {
+          var saved = localStorage.getItem(STORAGE_KEY);
+          if (saved === 'zh' || saved === 'en') return saved;
+        } catch (e) {}
+        return 'en';
+      })();
+
+      function applyLang(lang) {
+        currentLang = lang;
+        try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+        document.querySelectorAll('.nav__lang button[data-lang]').forEach(function(btn) {
+          var isActive = btn.getAttribute('data-lang') === lang;
+          btn.classList.toggle('is-active', isActive);
+        });
+        document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        var t = strings[lang] || strings.en;
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+          var key = el.getAttribute('data-i18n');
+          if (!key) return;
+          var text = t[key];
+          if (text === undefined) return;
+          if (el.getAttribute('data-i18n-html')) {
+            var hl = t.hero_title_hl || 'medical care in China';
+            el.innerHTML = text.replace(hl, '<span class="hl">' + hl + '</span>');
+            return;
+          }
+          if (el.tagName === 'LABEL' && (key === 'form_name' || key === 'form_email')) {
+            el.innerHTML = text + ' <span class="req">*</span>';
+            return;
+          }
+          el.textContent = text;
+        });
+      }
+
+      applyLang(currentLang);
 
       function openModal() {
         var modal = document.getElementById('inquiry-modal');
@@ -563,6 +756,12 @@
         if (e.key === 'Escape' && document.getElementById('inquiry-modal').classList.contains('is-open')) closeModal();
       });
 
+      document.querySelectorAll('.nav__lang button[data-lang]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          applyLang(btn.getAttribute('data-lang'));
+        });
+      });
+
       document.getElementById('inquiry-form').addEventListener('submit', function(e) {
         e.preventDefault();
         var form = document.getElementById('inquiry-form');
@@ -582,24 +781,25 @@
         var name = (nameEl.value || '').trim();
         var email = (emailEl.value || '').trim();
 
+        var t = strings[currentLang] || strings.en;
         if (!name) {
-          errName.textContent = 'This field is required';
+          errName.textContent = t.form_err_required;
           nameEl.classList.add('is-invalid');
           return;
         }
         if (!email) {
-          errEmail.textContent = 'This field is required';
+          errEmail.textContent = t.form_err_required;
           emailEl.classList.add('is-invalid');
           return;
         }
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-          errEmail.textContent = 'Please enter a valid email address';
+          errEmail.textContent = t.form_err_email;
           emailEl.classList.add('is-invalid');
           return;
         }
 
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending…';
+        submitBtn.textContent = (strings[currentLang] || strings.en).form_sending;
 
         fetch(FORMSPREE_ENDPOINT, {
           method: 'POST',
@@ -612,17 +812,17 @@
               document.getElementById('form-wrapper').classList.add('is-hidden');
               document.getElementById('form-done').classList.add('is-visible');
             } else {
-              errMsg.textContent = data.error || 'Something went wrong. Please try again or email us directly.';
+              errMsg.textContent = data.error || (strings[currentLang] || strings.en).form_err_network;
               errMsg.style.display = 'block';
             }
           })
           .catch(function() {
-            errMsg.textContent = 'Something went wrong. Please try again or email us directly.';
+            errMsg.textContent = (strings[currentLang] || strings.en).form_err_network;
             errMsg.style.display = 'block';
           })
           .finally(function() {
             submitBtn.disabled = false;
-            submitBtn.textContent = 'Submit';
+            submitBtn.textContent = (strings[currentLang] || strings.en).form_submit;
           });
       });
 
